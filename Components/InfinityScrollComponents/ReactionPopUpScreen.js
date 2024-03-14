@@ -3,7 +3,7 @@ import { Text,Image,StyleSheet,View, Pressable } from "react-native";
 export default function ReactionsPopUp (props){
     return (
       <View style={styles.box}>
-        <Pressable onPress={props.moveOn}>
+        <Pressable onPress={()=>props.onReaction(1)}>
           <View style={styles.reactions}>
           <Image
               style={styles.image}
@@ -13,7 +13,7 @@ export default function ReactionsPopUp (props){
             
           </View>
         </Pressable>
-        <Pressable onPress={props.moveOn}>
+        <Pressable onPress={()=>props.onReaction(2)}>
           <View style={styles.reactions}>
           <Image
               style={styles.image}
@@ -25,7 +25,7 @@ export default function ReactionsPopUp (props){
         </Pressable>
         
 
-        <Pressable onPress={props.moveOn}>
+        <Pressable onPress={()=>props.onReaction(3)}>
           <View style={styles.reactions}>
           <Image
               style={styles.image}
@@ -36,7 +36,7 @@ export default function ReactionsPopUp (props){
           </View>
         </Pressable>
 
-        <Pressable onPress={props.moveOn}>
+        <Pressable onPress={()=>props.onReaction(4)}>
           <View style={styles.reactions}>
           <Image
               style={styles.image}

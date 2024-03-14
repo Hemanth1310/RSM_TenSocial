@@ -5,28 +5,82 @@ import ReactionsPopUp from "./ReactionPopUpScreen";
 
 export const ReactionContainer =(props)=>{
   const [reactComponent, setReactComponent] = useState(false);
+  const [cheersState,setCheersState] = useState(false) 
+  const [reactionState,setReactionState]= useState(0)
 
   const boxView = () => {
-    setReactComponent(!reactComponent);
+    setReactComponent(true);
+   
   };
 
   const route = () => {
     setReactComponent(!reactComponent);
-    props.nextPost();
+    // props.nextPost();
   };
+
+  const onReaction =(reaction )=>{
+  
+    setReactionState(reaction)
+    setReactComponent(!reactComponent);
+  }
 
   return (
     <View>
       {reactComponent == true ? (
-        <ReactionsPopUp moveOn={route}></ReactionsPopUp>
+        <ReactionsPopUp onReaction={onReaction}></ReactionsPopUp>
       ) : null}
-
-      <Pressable onPress={boxView}>
+      {/* { 
+        cheersState== false ?(
+           <Pressable onPress={boxView}>
+          <Image
+            style={styles.reactions}
+            source={require("../../assets/Reaction-unclicked.png")}
+          ></Image>
+        </Pressable>):(
+        <Pressable onPress={boxView}>
         <Image
           style={styles.reactions}
-          source={require("../../assets/Reaction-unclicked.png")}
+          source={require("../../assets/Cheers.png")}
         ></Image>
-      </Pressable>
+      </Pressable>)
+
+      } */}
+      { 
+        reactionState == 0 ?(
+           <Pressable onPress={boxView}>
+          <Image
+            style={styles.reactions}
+            source={require("../../assets/Reaction-unclicked.png")}
+          ></Image>
+        </Pressable>):reactionState ==1 ?(
+        <Pressable onPress={boxView}>
+        <Image
+          style={styles.reactions}
+          source={require("../../assets/Congratulations.png")}
+        ></Image>
+      </Pressable>): reactionState==2?(
+        <Pressable onPress={boxView}>
+        <Image
+          style={styles.reactions}
+          source={require("../../assets/Cheers.png")}
+        ></Image>
+      </Pressable>): reactionState==3?(
+        <Pressable onPress={boxView}>
+        <Image
+          style={styles.reactions}
+          source={require("../../assets/Inspiring.png")}
+        ></Image>
+      </Pressable>):reactionState==4?(
+        <Pressable onPress={boxView}>
+        <Image
+          style={styles.reactions}
+          source={require("../../assets/Love.png")}
+        ></Image>
+      </Pressable>):null
+
+      }
+     
+      
     </View>
   );
 } 

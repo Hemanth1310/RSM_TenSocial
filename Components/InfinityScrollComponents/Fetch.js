@@ -24,31 +24,8 @@ export default Fetch=(props)=>{
         ToastAndroid.show(`You have ${5-store} skips left`, ToastAndroid.SHORT);
         }
     }, [store]);
-    const deadend = () =>{
-        Alert.alert('You’ve exhausted your skips!')
-    }
-
-    function onNext(index) {
-      setCounter(index);
-    }
 
 
-    function ignoreIt(index){
-        setCounter(index)
-    }
-
-    function storeCount(){
-        let x=parseInt(store)
-        x++;
-        if(x==5){
-            x=0;
-            setStore(x);
-            deadend();
-
-        }else{
-            setStore(x)
-        }
-    }
 
 
   
@@ -86,7 +63,6 @@ export default Fetch=(props)=>{
                       description={item.posts[0].postDrescription}
                       postImage={item.posts[0].postImage}
                       tag={item.posts[0].category}
-                      onNext={onNext}
                       unfo={showAlert}
                     ></PostLayout>
                   </View>
@@ -113,7 +89,6 @@ export default Fetch=(props)=>{
                       <View style={styles.interested}>
                         <View style={{ position: "relative" }}>
                           <ReactionContainer
-                            nextPost={() => onNext(index + 1)}
                           ></ReactionContainer>
                         </View>
                         <Pressable onPress={showAlert}>
@@ -137,7 +112,7 @@ export default Fetch=(props)=>{
             </>}
            
           />
-           <Text>Hello</Text>
+          
        
        
       </View>

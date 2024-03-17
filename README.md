@@ -1,4 +1,4 @@
-# React Native Application using Expo
+# TenSocial
 
 ## Introduction
 This repository contains a React Native application built using Expo, a framework and platform for universal React applications. The application Ten Where users can post their daily wins and achievements across different topics. This Platform aims to set a positive, mindful and motivating environment.

@@ -20,6 +20,7 @@ const ReactionScrollMain =(props)=>{
 
     return (
       <>
+      {/* Main Screen rendering posts with Reaction based Scrolling design */}
         <View style={styles.container}>
        
           <View style={styles.page}>

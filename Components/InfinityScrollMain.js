@@ -20,21 +20,18 @@ export default InfinityScrollMain =(props)=>{
 
     return (
       <>
+        {/* Main Screen rendering posts with Infinity Scrolling design */}
         <View style={styles.container}>
-       
           <View style={styles.page}>
             <View style={styles.layout1}>
-                <Menu onBackHome={onBack}></Menu>
-                <NavTabs ></NavTabs>
+              <Menu onBackHome={onBack}></Menu>
+              <NavTabs></NavTabs>
             </View>
             <View style={styles.layout2}>
-             
-                <Fetch></Fetch>
-
+              <Fetch></Fetch>
             </View>
           </View>
-       
-      </View>
+        </View>
       </>
     );
 }

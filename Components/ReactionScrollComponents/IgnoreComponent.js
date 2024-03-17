@@ -1,8 +1,8 @@
 import { StyleSheet,View,Text,Image,Pressable,ToastAndroid,Alert } from "react-native";
-import React,{useEffect,useState} from 'react'
-// import Ignore_NotInterested from "./Ignore_NotInterested";
+import React, { useEffect, useState } from "react";
 import Ignore_NotInterested from "./IgnoreNotIntereseted";
 export const IgnoreComponent =(props) =>{
+    // Ignore Component (# not reacting to skip post)
 
    async function onNotinterested(){
         
@@ -12,14 +12,11 @@ export const IgnoreComponent =(props) =>{
     }
         return (
           <View style={styles.contain}>
-                        <Pressable
-                          onPress={()=>onNotinterested()}
-                        >
-                          <View style={styles.ignore}>
-                            
-                            <Ignore_NotInterested></Ignore_NotInterested>
-                          </View>
-                        </Pressable>
+            <Pressable onPress={() => onNotinterested()}>
+              <View style={styles.ignore}>
+                <Ignore_NotInterested></Ignore_NotInterested>
+              </View>
+            </Pressable>
           </View>
         );
 

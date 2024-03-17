@@ -4,6 +4,7 @@ import React,{useEffect,useState} from 'react' ;
 import ReactionsPopUp from "./ReactionPopUpScreen";
 
 export const ReactionContainer =(props)=>{
+  // Reaction Container directing to reaction modal.
   const [reactComponent, setReactComponent] = useState(false);
 
   const boxView = () => {

@@ -2,72 +2,72 @@ import {  StyleSheet, Text, View, Image, Pressable,Alert } from "react-native";
 
 
 export default function Menu(props){
-    const showAlert = () =>
+  //Menu Component(# curerntly disabled)
+  const showAlert = () =>
     Alert.alert(
-      'Please Note',
-      'This function is disabled at the moment',
+      "Please Note",
+      "This function is disabled at the moment",
       [
         {
-          text: 'Cancel',
-          
-          style: 'cancel',
+          text: "Cancel",
+
+          style: "cancel",
         },
       ],
       {
         cancelable: true,
-     
-      },
+      }
     );
 
-    const onBack=()=>{
-        props.onBackHome();
-    }
-      
-      return (
-        <View style={styles.container}>
-          <View style={styles.p1}>
-          <View style={styles.burgersection}>
-            <Pressable onPress={onBack}>
-              <Image
-                style={styles.icon1}
-                source={require("../../assets/FakeBurgerMenu.png")}
-              ></Image>
-            </Pressable>
-          </View>
-          <View style={styles.appname}>
-            <Pressable onPress={showAlert}>
-              <Text style={styles.textappname}>TEN</Text>
-            </Pressable>
-          </View>
-          </View>
-          <View style={styles.p2}>
-          <View style={styles.finder}>
-            <Pressable onPress={showAlert}>
-              <Image
-                style={styles.icon}
-                source={require("../../assets/finder14.png")}
-              ></Image>
-            </Pressable>
-          </View>
-          <View style={styles.newpost}>
-            <Pressable onPress={showAlert}>
-              <Image
-                style={styles.icon1}
-                source={require("../../assets/pluspost.png")}
-              ></Image>
-            </Pressable>
-          </View>
-          <View style={styles.newpost}>
-            <Pressable onPress={showAlert}>
-              <Image
-                style={styles.icon2}
-                source={require("../../assets/bell.png")}
-              ></Image>
-            </Pressable>
-          </View>
-          </View>
+  const onBack = () => {
+    props.onBackHome();
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.p1}>
+        <View style={styles.burgersection}>
+          <Pressable onPress={onBack}>
+            <Image
+              style={styles.icon1}
+              source={require("../../assets/FakeBurgerMenu.png")}
+            ></Image>
+          </Pressable>
         </View>
-      );
+        <View style={styles.appname}>
+          <Pressable onPress={showAlert}>
+            <Text style={styles.textappname}>TEN</Text>
+          </Pressable>
+        </View>
+      </View>
+      <View style={styles.p2}>
+        <View style={styles.finder}>
+          <Pressable onPress={showAlert}>
+            <Image
+              style={styles.icon}
+              source={require("../../assets/finder14.png")}
+            ></Image>
+          </Pressable>
+        </View>
+        <View style={styles.newpost}>
+          <Pressable onPress={showAlert}>
+            <Image
+              style={styles.icon1}
+              source={require("../../assets/pluspost.png")}
+            ></Image>
+          </Pressable>
+        </View>
+        <View style={styles.newpost}>
+          <Pressable onPress={showAlert}>
+            <Image
+              style={styles.icon2}
+              source={require("../../assets/bell.png")}
+            ></Image>
+          </Pressable>
+        </View>
+      </View>
+    </View>
+  );
 }
 
 

@@ -6,117 +6,113 @@ import { IgnoreComponent } from './IgnoreComponent';
 
 
 export default Fetch=(props)=>{
-    const [users, setUsers] = useState([]);
-    const [couter,setCounter] = useState([0]);
-    const [store,setStore] =useState([0]);
+  //  Fetch.js
+  //      -Fetchs Posts from data bases
+  //      -Logic for Reaction based scrolling
+  //      -Rendering each post by looping through the lists of users
+  //      -Reading users reactions for each post
 
-    getUsers = () => {
-        fetch('https://tenoo-2854a-default-rtdb.europe-west1.firebasedatabase.app/user.json')
-          .then((response) => response.json())
-          .then((json) => setUsers(json))
-          .catch((error) => console.error(error))
+  const [users, setUsers] = useState([]);
+  const [couter, setCounter] = useState([0]);
+  const [store, setStore] = useState([0]);
+
+  getUsers = () => {
+    fetch(
+      "https://tenoo-2854a-default-rtdb.europe-west1.firebasedatabase.app/user.json"
+    )
+      .then((response) => response.json())
+      .then((json) => setUsers(json))
+      .catch((error) => console.error(error));
+  };
+  useEffect(() => {
+    getUsers();
+  }, []);
+  useEffect(() => {
+    if (store < 5 && store != 0) {
+      ToastAndroid.show(`You have ${5 - store} skips left`, ToastAndroid.SHORT);
     }
-    useEffect(() => {
-        getUsers();
-    }, []);
-    useEffect(() => {
-        if(store<5 && store!=0){
-        ToastAndroid.show(`You have ${5-store} skips left`, ToastAndroid.SHORT);
-        }
-    }, [store]);
+  }, [store]);
 
-
-
-
-  
-
-    const showAlert = () =>
-      Alert.alert(
-        "Please Note",
-        "This function is disabled at the moment",
-        [
-          {
-            text: "Cancel",
-            style: "cancel",
-          },
-        ],
+  const showAlert = () =>
+    Alert.alert(
+      "Please Note",
+      "This function is disabled at the moment",
+      [
         {
-          cancelable: true,
-        }
-      );
+          text: "Cancel",
+          style: "cancel",
+        },
+      ],
+      {
+        cancelable: true,
+      }
+    );
 
-
-    return (
-      <View>
-        
-          <FlatList
-            data={users}
-            renderItem={({ item })=> <>
+  return (
+    <View>
+      {/* Looping through the posts data */}
+      <FlatList
+        data={users}
+        renderItem={({ item }) => (
+          <>
             <View style={styles.container} key={Math.random().toString()}>
-            <View style={styles.postcard}>
-                  <View style={styles.poset_section}>
-                    <PostLayout
-                      userName={item.userName}
-                      date={item.posts[0].date}
-                      propic={item.profilePicture}
-                      title={item.posts[0].title}
-                      description={item.posts[0].postDrescription}
-                      postImage={item.posts[0].postImage}
-                      tag={item.posts[0].category}
-                      unfo={showAlert}
-                    ></PostLayout>
+              <View style={styles.postcard}>
+                <View style={styles.poset_section}>
+                  {/* Rendering post using post laytout component. */}
+                  <PostLayout
+                    userName={item.userName}
+                    date={item.posts[0].date}
+                    propic={item.profilePicture}
+                    title={item.posts[0].title}
+                    description={item.posts[0].postDrescription}
+                    postImage={item.posts[0].postImage}
+                    tag={item.posts[0].category}
+                    unfo={showAlert}
+                  ></PostLayout>
+                </View>
+                <View style={styles.expandDiv}>
+                  <View style={styles.savelater}>
+                    <Pressable onPress={showAlert}>
+                      <View style={styles.saveSection}>
+                        <Image
+                          style={styles.fakesave}
+                          source={require("../../assets/FakeSave.png")}
+                        ></Image>
+                      </View>
+                    </Pressable>
+                    <Pressable onPress={showAlert}>
+                      <View style={styles.fakeReportSection}>
+                        <Image
+                          style={styles.fakereport}
+                          source={require("../../assets/Report.png")}
+                        ></Image>
+                      </View>
+                    </Pressable>
                   </View>
-                  <View style={styles.expandDiv}>
-                    <View style={styles.savelater}>
+                  <View style={styles.bottomtabs}>
+                    <View style={styles.interested}>
+                      <View style={{ position: "relative" }}>
+                        <ReactionContainer></ReactionContainer>
+                      </View>
                       <Pressable onPress={showAlert}>
-                        <View style={styles.saveSection}>
-                          <Image
-                            style={styles.fakesave}
-                            source={require("../../assets/FakeSave.png")}
-                          ></Image>
-                        </View>
-                      </Pressable>
-                      <Pressable onPress={showAlert}>
-                        <View style={styles.fakeReportSection}>
-                          <Image
-                            style={styles.fakereport}
-                            source={require("../../assets/Report.png")}
-                          ></Image>
-                        </View>
+                        <Image
+                          style={styles.reactions}
+                          source={require("../../assets/FakeComments.png")}
+                        ></Image>
                       </Pressable>
                     </View>
-                    <View style={styles.bottomtabs}>
-                      <View style={styles.interested}>
-                        <View style={{ position: "relative" }}>
-                          <ReactionContainer
-                          ></ReactionContainer>
-                        </View>
-                        <Pressable onPress={showAlert}>
-                          <Image
-                            style={styles.reactions}
-                            source={require("../../assets/FakeComments.png")}
-                          ></Image>
-                        </Pressable>
-                      </View>
-                      <View style={styles.notinterested}>
-                        <View></View>
-                       
-                      </View>
+                    <View style={styles.notinterested}>
+                      <View></View>
                     </View>
                   </View>
                 </View>
+              </View>
             </View>
-
-              
-
-            </>}
-           
-          />
-          
-       
-       
-      </View>
-    );
+          </>
+        )}
+      />
+    </View>
+  );
 }
 
 

@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Pressable,Alert, TextInput } from 'react-native';
-// import NewPost from './NewPost';
-// import OldPost from './OldPost';
 import {
   ref,
   set
 } from 'firebase/database';
-// import { db } from './firebase-config.js';
-// import PostLayout from "./PostLayout";
 import { db } from './firebase-config';
 import NewPost from './NewPostComponent';
 import OldPost from './OldPostComponent';
 import PostLayout from './PostLayoutComponent';
 
 export default Fetch=()=>{
+
+     //  Fetch.js
+     //      -Fetchs Posts from data bases
+     //      -Logic for Old-New Recognition test
+     //      -Rendering each post by looping through the list of posts
+
     const [users, setUsers] = useState([]);
     const [couter,setCounter] = useState([0]);
     const [store,setStore] =useState([0]);

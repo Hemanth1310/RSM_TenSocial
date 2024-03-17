@@ -6,6 +6,13 @@ import { IgnoreComponent } from './IgnoreComponent';
 
 
 export default Fetch=()=>{
+
+    //  Fetch.js
+    //      -Fetchs Posts from data bases
+    //      -Logic for Reaction based scrolling 
+    //      -Rendering each post by looping through the lists of users
+    //      -Reading users reactions for each post
+
     const [users, setUsers] = useState([]);
     const [couter,setCounter] = useState([0]);
     const [store,setStore] =useState([0]);
@@ -69,15 +76,16 @@ export default Fetch=()=>{
       );
 
 
-    return(
-        <View>
+    return (
+      <View>
         <View style={styles.container} key={Math.random().toString()}>
-
+          {/* Looping through the posts data */}
           {users.map((data, index) => (
             <View style={styles.postdescription} key={Math.random().toString()}>
               {couter == index ? (
                 <View style={styles.postcard}>
                   <View style={styles.poset_section}>
+                    {/* Rendering post using post laytout component. */}
                     <PostLayout
                       userName={data.userName}
                       date={data.posts[0].date}
@@ -125,8 +133,11 @@ export default Fetch=()=>{
                       </View>
                       <View style={styles.notinterested}>
                         <View></View>
-                        <IgnoreComponent onIgnore={() => ignoreIt(index + 1) } updateCount={storeCount} countStore={store}></IgnoreComponent>
-                        
+                        <IgnoreComponent
+                          onIgnore={() => ignoreIt(index + 1)}
+                          updateCount={storeCount}
+                          countStore={store}
+                        ></IgnoreComponent>
                       </View>
                     </View>
                   </View>
@@ -136,7 +147,7 @@ export default Fetch=()=>{
           ))}
         </View>
       </View>
-    )
+    );
 }
 
 

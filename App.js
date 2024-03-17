@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,ImageBackground } from 'react-native';
 import HomeScreen from './Components/HomeScreen';
-import ReactionScrollMain from './Components/ReactionScrollMain';
 export default function App() {
   return (
+     
     <View style={styles.container}>
+      
+      { /* Entry File Which renders Home screen of the platform */ }
+      
       <StatusBar style="light" />
       <ImageBackground
           source={require("./assets/background12.png")}
@@ -12,7 +15,6 @@ export default function App() {
           style={styles.backImage}
         >
       <HomeScreen></HomeScreen>
-      {/* <ReactionScrollMain></ReactionScrollMain> */}
       </ImageBackground>
     </View>
   );
@@ -21,9 +23,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#00224A',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   backImage:{
     flex: 1,

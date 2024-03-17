@@ -2,6 +2,7 @@ import {  StyleSheet, Text, View, Image, Pressable,Alert } from "react-native";
 
 
 export default function Menu(props){
+    //Menu Component(# curerntly disabled)
     const showAlert = () =>
     Alert.alert(
       'Please Note',

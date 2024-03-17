@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         paddingHorizontal:15,
-        justifyContent:"space-between",
         padding:10,
     },
     image:{
         height:25,
         width:25,
-        resizeMode:"contain"
+        resizeMode:"contain",
+        marginRight:20,
     },
     text:{
         fontSize:16,

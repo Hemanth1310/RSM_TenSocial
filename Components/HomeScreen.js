@@ -20,46 +20,39 @@ export default HomeScreen=()=>{
         statePointer(0)
     }
 
-    return(
-        <>
-          
-        
-            {pointer==0 ? (<View style={style.nav}>
-                <Text style={{color:"#fff",fontSize:30}}>TENSocial</Text>
-                <Pressable onPress={toReactionScroll}>
-                <View style={style.button}>
-                    <Text>ReactionScroll</Text>
-                </View>
+    return (
+      <>
+        {/* HomeScreen: Navigates to the selected screen on when you select any option */}
+
+        {pointer == 0 ? (
+          <View style={style.nav}>
+            <Text style={{ color: "#fff", fontSize: 30 }}>TENSocial</Text>
+            <Pressable onPress={toReactionScroll}>
+              <View style={style.button}>
+                <Text>ReactionScroll</Text>
+              </View>
             </Pressable>
             <Pressable onPress={toInfinityScroll}>
-                <View style={style.button}>
-                    <Text>InfinityScroll</Text>
-                </View>
+              <View style={style.button}>
+                <Text>InfinityScroll</Text>
+              </View>
             </Pressable>
             <Pressable onPress={toTestPage}>
-                <View style={style.button}>
-                    <Text>Enter Test</Text>
-                </View>
+              <View style={style.button}>
+                <Text>Enter Test</Text>
+              </View>
             </Pressable>
-            </View>) : null}
-            {
-                pointer==1?(
-                    <ReactionScrollMain toHome={backToHome}></ReactionScrollMain>
-                ):null
-            }
-            {
-                pointer==2?(
-                    <InfinityScrollMain toHome={backToHome}></InfinityScrollMain>
-                ):null
-            }
-            {
-                pointer==3?(
-                    <TestScreen toHome={backToHome}></TestScreen>
-                ):null
-            }
-            
-        </>
-    )
+          </View>
+        ) : null}
+        {pointer == 1 ? (
+          <ReactionScrollMain toHome={backToHome}></ReactionScrollMain>
+        ) : null}
+        {pointer == 2 ? (
+          <InfinityScrollMain toHome={backToHome}></InfinityScrollMain>
+        ) : null}
+        {pointer == 3 ? <TestScreen toHome={backToHome}></TestScreen> : null}
+      </>
+    );
 }
 
 const style= StyleSheet.create({

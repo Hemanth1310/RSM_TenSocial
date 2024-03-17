@@ -8,20 +8,21 @@ export default TestScreen=(props)=>{
         props.toHome()
     }
     return (
-        <View style={styles.container}>
-          <View style={styles.page}>
-            <View style={styles.layout1}>
-              <Menu onBackHome={onBack}></Menu>
-            </View>
-            <View style={styles.layout2}>
-              <ScrollView style={styles.scrollView}>
-                <Fetch></Fetch>
-                {/* <FetchSubmisions></FetchSubmisions> */}
-              </ScrollView>
-            </View>
+      <View style={styles.container}>
+        {/* Test section of the Platform designed for user to take an Old-New recognition test */}
+        <View style={styles.page}>
+          <View style={styles.layout1}>
+            <Menu onBackHome={onBack}></Menu>
+          </View>
+          <View style={styles.layout2}>
+            <ScrollView style={styles.scrollView}>
+              <Fetch></Fetch>
+             
+            </ScrollView>
           </View>
         </View>
-      );
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({

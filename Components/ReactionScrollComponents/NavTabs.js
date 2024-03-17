@@ -1,51 +1,45 @@
 import { StyleSheet,Text,Button,View,Pressable,Image,Alert } from "react-native";
-// import { useFonts } from 'expo-font';
-// import * as SplashScreen from 'expo-splash-screen';
-// import { useCallback } from 'react';
-
-
-// SplashScreen.preventAutoHideAsync();
 
 export default NavTabs = () =>{
-  
+  //Navigation Tab Component(# curerntly disabled)
 
-      const showAlert = () =>
-        Alert.alert(
-          "Please Note",
-          "This function is disabled at the moment",
-          [
-            {
-              text: "Cancel",
+  const showAlert = () =>
+    Alert.alert(
+      "Please Note",
+      "This function is disabled at the moment",
+      [
+        {
+          text: "Cancel",
 
-              style: "cancel",
-            },
-          ],
-          {
-            cancelable: true,
-          }
-        );
+          style: "cancel",
+        },
+      ],
+      {
+        cancelable: true,
+      }
+    );
 
-    return (
-      <View style={styles.container} >
-        <View style={styles.nav}>
-          <View style={styles.p1}>
-            <View style={styles.followtab}>
-              <Pressable>
-                <Text style={styles.textFollow}>Following</Text>
-              </Pressable>
-            </View>
-            <View style={styles.activetab}></View>
+  return (
+    <View style={styles.container}>
+      <View style={styles.nav}>
+        <View style={styles.p1}>
+          <View style={styles.followtab}>
+            <Pressable>
+              <Text style={styles.textFollow}>Following</Text>
+            </Pressable>
           </View>
-          <View style={styles.p2}>
+          <View style={styles.activetab}></View>
+        </View>
+        <View style={styles.p2}>
           <View style={styles.discovertab}>
             <Pressable onPress={showAlert}>
               <Text style={styles.textDiscover}>Discover</Text>
             </Pressable>
           </View>
-          </View>
         </View>
       </View>
-    );
+    </View>
+  );
 }
 
 
